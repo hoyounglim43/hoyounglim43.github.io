@@ -1,0 +1,61 @@
+/*
+. is for class selectors
+# is for id selectors
+IF you dont set up the width of the children, the width of the parent is of the children
+If you dont set up the width of the parent, the width of the parent is the sum of the width of children
+*/
+*{
+  margin:0;
+}
+
+body{
+  font-family:"Avenir", sans-serif;
+}
+
+h1{
+  background-color:black;
+  color:white;
+  padding-left:10px;
+  font-family:"Herculanum", sans-serif;
+  font-size:60px
+}
+
+h2{
+  background-color:red;
+  color:white;
+  padding:5px;
+}
+
+li{
+  padding-left:5px;
+  padding-right:5px;
+  padding-bottom:3px;
+}
+
+img{
+  padding:5px;
+}
+
+.image{
+  width:200px;
+  height:200px;
+}
+
+#charmander{
+  float:left;
+  border:1px solid black;
+  margin:3px;
+
+}
+
+#ivysaur{
+  float:left;
+  border:1px solid black;
+  margin:3px;
+}
+
+#mewtwo{
+  float:left;
+  border:1px solid black;
+  margin:3px;
+}
