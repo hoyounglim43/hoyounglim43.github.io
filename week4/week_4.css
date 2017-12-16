@@ -44,7 +44,7 @@ body{
 li.nav_li{
   padding:20px;
   margin:10px;
-    border:black 2px solid;
+  border:black 2px solid;
 }
 
 li.nav_li:hover{
@@ -65,6 +65,12 @@ ul.gnb > li > a {
 
 /*Fixing A Broken Layout!*/
 .header::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#cardslot::after {
   content: '';
   display: block;
   clear: both;
@@ -128,4 +134,18 @@ img{
   width:310px;
   padding-left:50px;
   padding-right:50px;
+}
+
+#footer{
+  border-top:2px red solid;
+  background-color:black;
+  color:white;
+  text-align: center;
+  padding:30px;
+}
+
+#github{
+  text-decoration:none;
+  color:white;
+  font-style:italic;
 }
