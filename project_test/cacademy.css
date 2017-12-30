@@ -1,0 +1,34 @@
+
+
+/* Navbar */
+.header{
+  background-color:#444444;
+  padding:20px;
+}
+
+#header_logo{
+  width:150px;
+  display:inline;
+}
+
+.nav_li{
+  list-style-type: none;
+  text-decoration:none;
+  color:white;
+  margin:40px 0px 40px 0px;
+}
+
+.nav_link{
+  color:#8a7749;
+  padding:20px;
+  transition: background-color 0.1s;
+  width:100px;
+  text-align:center;
+}
+
+.nav_link:hover{
+  background-color:#8a7749;
+  color:#444444;
+  text-decoration:none;
+  width:200px;
+}
