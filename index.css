@@ -1,7 +1,30 @@
-.list{
-  border:2px solid black;
-  float:left;
-  padding:15px;
-  margin:5px;
-  width:300px;
+html{
+  font-family:"Futura", sans-serif;
+}
+
+#site_title{
+  font-family:"Futura", sans-serif;
+  text-align:center;
+  font-size:200px;
+  background-color:#1cc154;
+  color:white;
+  padding-bottom:20px;
+}
+
+.card_box{
+  padding:10px;
+  min-height:200px;
+  text-align:center;
+}
+
+.card-border{
+  margin: 5px 0px 5px 0px
+}
+
+
+.footer_element{
+  text-align:center;
+  background-color:grey;
+  color:white;
+  padding:20px;
 }
