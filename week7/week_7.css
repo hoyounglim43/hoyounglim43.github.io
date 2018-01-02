@@ -1,0 +1,16 @@
+.bgImage {
+  height:600px;
+  background: url("assets/bgImage.png");
+  background-position:fixed;
+  background-repeat:no-repeat;
+  background-size:cover;
+
+}
+
+.table {
+  margin-top:20px;
+}
+
+input {
+  width:100px;
+}
