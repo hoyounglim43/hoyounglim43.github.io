@@ -23,18 +23,10 @@
 
         <div class="card col-lg-6 card_box">
           <div class="card-body cardBody">
-            <p id="counter1">0</p>
-            <p id="question1"></p>
+            <p class="boxTitle">Addition</p>
             <hr>
-            <input id="userInput1" type="text" name="userInput">
-            <button id="submitButton1" type="button" name="submitButton">Submit</button>
+            <p id="counter2">0</p>
             <hr>
-            <p id="result1"><p>
-          </div>
-        </div>
-
-        <div class="card col-lg-6 card_box">
-          <div class="card-body cardBody">
             <p id="question2"></p>
             <hr>
             <input id="userInput2" type="text" name="userInput">
@@ -44,83 +36,30 @@
           </div>
         </div>
 
+        <div class="card col-lg-6 card_box">
+          <div class="card-body cardBody">
+            <p class="boxTitle">Multiplication</p>
+            <hr>
+            <p id="counter1">0</p>
+            <hr>
+            <p id="question1"></p>
+            <hr>
+            <input id="userInput1" type="text" name="userInput">
+            <button id="submitButton1" type="button" name="submitButton">Submit</button>
+            <hr>
+            <p id="result1"><p>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <div>
       <hr>
-      <p class="footer">2018. Multiplication.</p>
+      <p class="footer">2018. Mathematics.</p>
     </div>
 
-    <script type="text/javascript">
-      //Q1
 
-      var counter = 0;
-
-      var checkAnswer = function(){
-        var userInput1 = document.getElementById("userInput1").value;
-
-
-        if (answer1 == Number(userInput1)) {
-          document.getElementById("result1").innerHTML = "Correct!";
-          document.getElementById("result1").style.color="#1cc154";
-          counter += 1;
-        }
-        else {
-          document.getElementById("result1").innerHTML = "Wrong Answer, correct answer = " + answer1;
-          document.getElementById("result1").style.color="#f00039";
-          counter = 0;
-        }
-
-      document.getElementById("counter1").innerHTML = counter;
-      document.getElementById("userInput1").value = "";
-
-      }
-
-      var answer1;
-
-      var createQuestion = function() {
-        var number11 = Math.floor(Math.random() * 9 + 1);
-        var number12 = Math.floor(Math.random() * 9 + 1);
-        var question1 = number11 + " × " + number12 + " = ";
-
-        document.getElementById('question1').innerHTML = question1;
-
-        answer1 = number11 * number12;
-      }
-
-      createQuestion();
-
-      var timeOutFunction = function() {
-        setTimeout(function() {
-          document.getElementById("result1").innerHTML = "";
-          createQuestion();
-          // document.getElementById("userInput1").disabled = true;
-          // document.getElementById("submitButton1").disabled = true;
-        },1500);
-      }
-
-      document.getElementById("submitButton1").addEventListener("click", function() {
-        checkAnswer();
-        // timeOutFunction();
-        timeOutFunction();
-
-      })
-
-      document.getElementById("userInput1").addEventListener("keypress", function() {
-
-        var key = event.keyCode;
-        if (key == 13) {
-          checkAnswer();
-          timeOutFunction();
-        }
-
-
-      })
-
-
-    </script>
-
-
+    <script src="javascript.js"></script>
   </body>
 </html>
