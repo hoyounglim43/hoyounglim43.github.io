@@ -15,7 +15,7 @@ body{
 
 
 
-#question1, #question2{
+#question1, #question2, #question3, #question4{
   font-size:60px;
   font-weight:bold;
 }
@@ -25,13 +25,13 @@ body{
   text-align:center;
 }
 
-#userInput1, #userInput2 {
+#userInput1, #userInput2, #userInput3, #userInput4 {
   padding:7.5px;
   border-radius:8px;
   border: solid 1px #4286f4;
 }
 
-#submitButton1, #submitButton2 {
+#submitButton1, #submitButton2, #submitButton3, #submitButton4 {
   padding:7.5px 20px 7.5px 20px;
   border-radius:8px;
   border: solid 1px #4286f4;
@@ -39,7 +39,7 @@ body{
   color:#4286f4;
 }
 
-#submitButton1:hover, #submitButton2:hover {
+#submitButton1:hover, #submitButton2:hover, #submitButton3:hover, #submitButton4:hover {
   border: solid 1px #4286f4;
   background-color:#4286f4;
   color:white;
@@ -54,7 +54,7 @@ body{
 
 .card_box {
   height:400px;
-  padding:30px;
+  padding:15px;
 }
 
 

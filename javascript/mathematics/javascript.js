@@ -1,5 +1,5 @@
 
-    // Box 1
+    // Multiplication
 
           var counter = 0;
 
@@ -38,11 +38,14 @@
           createQuestion();
 
           var timeOutFunction = function() {
+            document.getElementById("userInput1").disabled = true;
+            document.getElementById("submitButton1").disabled = true;
             setTimeout(function() {
               document.getElementById("result1").innerHTML = "";
               createQuestion();
-              // document.getElementById("userInput1").disabled = true;
-              // document.getElementById("submitButton1").disabled = true;
+              document.getElementById("userInput1").disabled = false;
+              document.getElementById("submitButton1").disabled = false;
+              document.getElementById("userInput1").focus();
             },1500);
           }
 
@@ -64,7 +67,7 @@
 
           })
 
-        // Box 2
+        // Addition
 
         var counter2 = 0;
 
@@ -102,12 +105,15 @@
 
 
         var timeOutFunction2 = function() {
+          document.getElementById("userInput2").disabled = true;
+          document.getElementById("submitButton2").disabled = true;
           setTimeout(function() {
             document.getElementById("result2").innerHTML = "";
             document.getElementById("userInput2").value = "";
             createQuestion2();
-            // document.getElementById("userInput1").disabled = true;
-            // document.getElementById("submitButton1").disabled = true;
+            document.getElementById("userInput2").disabled = false;
+            document.getElementById("submitButton2").disabled = false;
+            document.getElementById("userInput2").focus();
           },1500);
         }
 
@@ -127,3 +133,89 @@
             timeOutFunction2();
           }
         })
+
+
+        // Subtraction
+
+        var counter3 = 0;
+
+        var number31;
+        var number32;
+
+        var createNumbers = function() {
+        number31 = Math.floor(Math.random() * 100 + 1);
+        number32 = Math.floor(Math.random() * 100 + 1);
+      }
+
+      var answer3;
+
+      var createQuestion3 = function() {
+        createNumbers();
+        if (number31 > number32) {
+          document.getElementById("question3").innerHTML = number31 + " - " + number32;
+          answer3 = number31 - number32;
+
+        }
+
+        else {
+          document.getElementById("question3").innerHTML = number32 + " - " + number31;
+          answer3 = number32 - number31;
+        }
+      }
+
+       var checkAnswer3 = function() {
+         var userInput3 = document.getElementById("userInput3").value;
+
+         if (answer3 == userInput3) {
+           document.getElementById("result3").innerHTML = "Correct!";
+           document.getElementById("result3").style.color="#1cc154";
+           counter3 += 1;
+           document.getElementById("counter3").innerHTML = counter3;
+         }
+         else {
+           document.getElementById("result3").innerHTML = "Wrong Answer, correct Answer = " + answer3;
+           document.getElementById("result3").style.color="#f00039";
+           counter3 = 0;
+           document.getElementById("counter3").innerHTML = counter3;
+         }
+       }
+
+       var timeOutFunction3 = function() {
+         document.getElementById("userInput3").disabled = true;
+         document.getElementById("submitButton3").disabled = true;
+         setTimeout(function() {
+           document.getElementById("result3").innerHTML = "";
+           document.getElementById("userInput3").value = "";
+           createQuestion3();
+           document.getElementById("userInput3").disabled = false;
+           document.getElementById("submitButton3").disabled = false;
+           document.getElementById("userInput3").focus();
+         },1500);
+       }
+
+
+      createQuestion3()
+
+      document.getElementById("submitButton3").addEventListener("click", function(){
+        checkAnswer3();
+        timeOutFunction3();
+      })
+
+      document.getElementById("userInput3").addEventListener("keypress", function(){
+        var key = event.keyCode;
+        if (key==13) {
+          checkAnswer3();
+          timeOutFunction3();
+        }
+      })
+// Function Test
+  // var function2;
+  //
+  // var function1 = function() {
+  //   function2 = function() {
+  //
+  //   }
+  //   function2()
+  // }
+  //
+  // function2();

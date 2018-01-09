@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+
+      // The Function Invocation Pattern
+      var add = function(a,b) {
+
+        // console.log(a + b);
+        // console.log(this);
+        // console.log(this.document);
+        return a + b;
+      };
+
+      add(2, 5);
+
+
+      // The Method Invocation Pattern
+      var myObject = {
+        value: 0,
+        increment: function(inc) {
+          this.value += typeof inc === 'number' ? inc : 1;
+          // Alternate Code
+            // if(typeof inc === 'number') {
+            //   this.value += inc;
+            // } else{
+            //   this.value += 1;
+            // }
+
+
+        }
+      };
+
+
+
+      myObject.increment();
+      console.log(myObject.value); //1
+
+
+      myObject.increment(2);
+      console.log(myObject.value); //3
+
+      // Augment myObject ith a double method.
+
+      myObject.double = function() {
+
+        // console.log(this);
+        var that = this; // Workaround.
+        var helper = function() {
+          that.value = add(that.value, that.value);
+          console.log(that);
+        };
+        helper(); // Invoke helper as function.
+      };
+      // Invoke double as a method.
+
+      myObject.double();
+      console.log(myObject.value); //6
+
+
+
+    </script>
+  </body>
+</html>
