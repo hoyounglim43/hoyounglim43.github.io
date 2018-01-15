@@ -36,14 +36,15 @@ body{
   border-radius:8px;
   border: solid 1px #4286f4;
   background-color:white;
-  color:#4286f4;
+  color:white;
+  background-color:#4286f4;
 }
 
 #submitButton1:hover, #submitButton2:hover, #submitButton3:hover, #submitButton4:hover {
-  border: solid 1px #4286f4;
-  background-color:#4286f4;
+  border: solid 1px #00cc4b;
+  background-color:#00cc4b;
   color:white;
-  transition: background-color, color .3s;
+  transition: background-color .3s;
 }
 
 .footer {
@@ -61,4 +62,14 @@ body{
 .boxTitle{
   font-size: 20px;
   color:#4286f4;
+}
+
+
+input:focus {
+  outline: none !important;
+  border: solid 1px #00cc4b !important;
+}
+
+input:hover {
+  border: solid 1px #00cc4b !important;
 }

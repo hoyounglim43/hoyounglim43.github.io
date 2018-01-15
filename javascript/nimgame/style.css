@@ -1,0 +1,46 @@
+body {
+  font-family:"Futura", sans-serif;
+}
+
+#pageTitle {
+  font-size: 100px;
+  font-weight: bold;
+  background-color: #a957ed;
+  color: white;
+  text-align: center;
+  padding: 20px;
+
+}
+
+#app {
+  margin: 30px;
+}
+
+
+#counter {
+  text-align: center;
+  font-size: 60px;
+  color:#a957ed;
+  font-weight: bold;
+}
+
+.numberButton {
+  width: 100%;
+  background-color:white;
+  color: #a957ed;
+  border:2px solid #a957ed;
+}
+
+.numberButton:hover {
+  background-color: #a957ed;
+  color: white;
+  transition: background-color color .3s;
+}
+
+.winner {
+  color: #a957ed;
+}
+
+.h120 {
+  height:120px;
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Maze Runner Series</title>
+    <!-- Bootstrap v4 CDN -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- Vue.js Framework -->
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- CSS Style Sheet -->
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <div id="navBar">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#">Maze Runner Series</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cast
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" v-bind:href="director.profile_url">{{director.name}} ({{director.role}})</a>
+                <div class="dropdown-divider"></div>
+                <!-- <a class="dropdown-item" v-bind:href="actors[0].profile_url">{{actors[0].name}} ({{actors[0].role}})</a>
+                <a class="dropdown-item" v-bind:href="actors[1].profile_url">{{actors[1].name}} ({{actors[1].role}})</a>
+                <a class="dropdown-item" v-bind:href="actors[2].profile_url">{{actors[2].name}} ({{actors[2].role}})</a> -->
+                <a class="dropdown-item" v-bind:href="actor.profile_url" v-for="actor in actors">{{actor.name}} ({{actor.role}})</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div id="bg">
+      <img v-bind:src="bg_url" id="backgroundImage" class="img-fluid" alt="Responsive image">
+    </div>
+
+    <div id="movies" class="movies mt20">
+      <div class="container">
+
+        <div class="row mt20">
+          <div class="col-3">
+            <button class="btn btn-success height400 fullWidth bigButton" type="button" name="button" v-on:click="changeMovie1Show">The Maze Runner</button>
+          </div>
+          <transition name="fade">
+            <div class="col-9" v-if="movies[0].show">
+              <div class="row">
+                <div class="col-4">
+                  <img class="fitCol height400" v-bind:src="movies[0].image_url" alt="Maze Runner Movie Poster">
+                </div>
+                <div class="col-8">
+                  <p class="sectionText">{{movies[0].description}}</p>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+
+        <div class="row mt15">
+          <div class="col-3">
+            <input type="text" class="fullWidth" name="userInput" placeholder="Title" v-model="movies[0].userTitle">
+          </div>
+          <div class="col-9">
+            <h3>{{movies[0].userTitle}}</h3>
+          </div>
+        </div>
+
+        <div class="row mt15">
+          <div class="col-3">
+            <textarea class="fullWidth" name="userInput" rows="8" cols="80" placeholder="Description" v-model="movies[0].userInput"></textarea>
+          </div>
+          <div class="col-9">
+            <p>{{movies[0].userInput}}</p>
+          </div>
+        </div>
+
+        <div class="row mt20">
+          <div class="col-3">
+            <button class="btn btn-success height400 fullWidth bigButton" type="button" name="button" v-on:click="changeMovie2Show">The Scorch Trials</button>
+          </div>
+          <transition name="slide">
+            <div class="col-9" v-if="movies[1].show">
+              <div class="row">
+                <div class="col-4">
+                  <img class="fitCol height400" v-bind:src="movies[1].image_url" alt="Scorch Trials Movie Poster">
+                </div>
+                <div class="col-8">
+                  <p class="sectionText">{{movies[1].description}}</p>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+
+        <div class="row mt15">
+          <div class="col-3">
+            <input type="text" class="fullWidth" name="userInput" placeholder="Title" v-model="movies[1].userTitle">
+          </div>
+          <div class="col-9">
+            <h3>{{movies[1].userTitle}}</h3>
+          </div>
+        </div>
+
+        <div class="row mt15">
+          <div class="col-3">
+            <textarea class="fullWidth" name="userInput" rows="8" cols="80" placeholder="Description" v-model="movies[1].userInput"></textarea>
+          </div>
+          <div class="col-9">
+            <p>{{movies[1].userInput}}</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+
+    <div id="forms" class="mt30">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-3">
+              <hr>
+            <input type="checkbox" id="actor1" value="Dylan O'Brien" v-model="movieActors">
+              <label for="Dylan O'Brien">Dylan O'Brien</label>
+              <hr>
+            <input type="checkbox" id="actor2" value="Kaya Scodelario" v-model="movieActors">
+              <label for="Kaya Scodelario">Kaya Scodelario</label>
+              <hr>
+            <input type="checkbox" id="actor3" value="Hugh Jackman" v-model="movieActors">
+              <label for="Hugh Jackman">Hugh Jackman</label>
+              <hr>
+            <input type="checkbox" id="actor4" value="Ki Hong Lee" v-model="movieActors">
+              <label for="Ki Hong Lee">Ki Hong Lee</label>
+          </div>
+
+          <div class="col-9">
+            <p>Cast of the Movie: </p>
+            <ul>
+              <li v-for="cast in movieActors">{{cast}}</li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="row mt15">
+
+          <div class="col-3">
+              <hr>
+            <h3>Your Favourite Cast:</h3>
+              <hr>
+            <input type="radio" id="cast1" value="Dylan O'Brien" v-model="favouriteActor">
+              <label for="Dylan O'Brien">Dylan O'Brien</label>
+              <hr>
+            <input type="radio" id="cast2" value="Kaya Scodelario" v-model="favouriteActor">
+              <label for="Kaya Scodelario">Kaya Scodelario</label>
+              <hr>
+            <input type="radio" id="cast3" value="Thomas Brodie-Sangster" v-model="favouriteActor">
+              <label for="Thomas Brodie-Sangster">Thomas Brodie-Sangster</label>
+              <hr>
+            <input type="radio" id="cast4" value="Ki Hong Lee" v-model="favouriteActor">
+              <label for="Ki Hong Lee">Ki Hong Lee</label>
+          </div>
+
+          <div class="col-9">
+            <hr>
+            <h3 class="emphasis">{{favouriteActor}}</h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+       var nav = new Vue ({
+         el: "#navBar",
+         data: {
+           director: {
+             name: "Wes Ball",
+             role: "Director",
+             profile_url: "http://www.imdb.com/name/nm1226871/"
+           },
+           actors: [
+             {
+               name: "Dylan O'Brien",
+               role: "Thomas",
+               profile_url: "http://www.imdb.com/name/nm3729721/"
+             },
+             {
+               name: "Kaya Scodelario",
+               role: "Teresa",
+               profile_url: "http://www.imdb.com/name/nm2546012/"
+             },
+             {
+               name: "Thomas Brodie-Sangster",
+               role: "Newt",
+               profile_url: "http://www.imdb.com/name/nm1032473/"
+             },
+             {
+               name: "Ki Hong Lee",
+               role: "Minho",
+               profile_url: "http://www.imdb.com/name/nm3859624/"
+             }
+           ]
+         }
+       })
+
+       var bg = new Vue ({
+         el: "#bg",
+         data: {
+          bg_url: "assets/bg.png"
+         }
+       })
+
+       var movies = new Vue ({
+         el: "#movies",
+         data: {
+           movies: [
+             {
+               image_url:"assets/mazerunner.png",
+               description:"Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow \"runners\" for a shot at escape.",
+               show:false,
+               userTitle: "",
+               userInput: ""
+             },
+             {
+               image_url:"assets/scorchtrials.png",
+               description:"After having escaped the Maze, the Gladers now face a new set of challenges on the open roads of a desolate landscape filled with unimaginable obstacles.",
+               show:false,
+               userTitle: "",
+               userInput: ""
+             }
+           ]
+         },
+         methods: {
+           changeMovie1Show: function() {
+             var toggle = this.movies[0].show;
+             // if (toggle == true) {
+             //   this.movies[0].show = false;
+             // }
+             // else {
+             //   this.movies[0].show = true;
+             // }
+             this.movies[0].show = !toggle;
+           },
+           changeMovie2Show: function() {
+             var toggle = this.movies[1].show;
+             // if (toggle == true) {
+             //   this.movies[1].show = false;
+             // }
+             // else {
+             //   this.movies[1].show = true;
+             // }
+             this.movies[1].show = !toggle;
+
+           }
+         }
+       })
+       var forms = new Vue ({
+         el: "#forms",
+         data: {
+           movieActors: [],
+           favouriteActor: ""
+         }
+       })
+
+    </script>
+
+  </body>
+</html>

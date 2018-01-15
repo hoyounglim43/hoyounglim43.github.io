@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trivia Quiz: General Knowledge</title>
+    <!-- Bootstrap v4 CDN -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- Vue.js Framework -->
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- CSS Style Sheet -->
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Header -->
+      <h1 id="pageTitle">Trivia Quiz: General Knowledge</h1>
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-12 questionBox" id="question1">
+            <h4 class="textCenter">Question 1</h4>
+            <div class="row">
+              <div class="col-8">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="radio1" class="questionRadio" value="{{answers[0]}}">
+                  <label class="form-check-label">
+                    <p>{{answers[0]}}</p>
+                  </label>
+                  <hr>
+                  <input class="form-check-input" type="radio" name="radio1" class="questionRadio" value="{{answers[1]}}">
+                  <label class="form-check-label">
+                    <p>{{answers[1]}}</p>
+                  </label>
+                  <hr>
+                  <input class="form-check-input" type="radio" name="radio1" class="questionRadio" value="{{answers[2]}}">
+                  <label class="form-check-label">
+                    <p>{{answers[2]}}</p>
+                  </label>
+                  <hr>
+                  <input class="form-check-input" type="radio" name="radio1" class="questionRadio" value="{{answers[3]}}">
+                  <label class="form-check-label">
+                    <p>{{answers[3]}}</p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-4">
+                <p id="question1Result"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 2</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 3</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 4</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 5</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 6</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 7</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 8</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="textCenter">Question 9</h4>
+          </div>
+
+          <div class="col-12 questionBox">
+            <h4 class="questionHeading">Question 10</h4>
+          </div>
+
+        </div>
+      </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

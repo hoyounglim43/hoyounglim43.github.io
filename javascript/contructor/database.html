@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Apple iPhones</title>
+  </head>
+  <body>
+
+  <p id="iPhoneXreleaseDate"></p>
+
+    <script type="text/javascript">
+      var ApplePhone = function(name, releaseDate, screenSize, processor, storage, camera) {
+        this.name = name;
+        this.releaseDate = releaseDate;
+        this.screenSize = screenSize;
+        this.processor = processor;
+        this.storage = storage;
+        this.camera = camera;
+      }
+
+      var iPhone3G = new ApplePhone("iPhone 3G", "11/07/08", "115.5 mm", "ARM Cortex-A8", "8 or 16 GB", "2.0 megapixel")
+      var iPhone5 = new ApplePhone("iPhone 5", "21/09/12", "120 mm", "Apple A6", "16, 32 or 64 GB", "8 megapixel")
+      var iPhone6 = new ApplePhone("iPhone 6", "09/09/14", "158.1 mm", "Apple A8", "16 GB", "8 megapixel")
+      var iPhone7 = new ApplePhone("iPhone 7", "16/09/16", "158.1 mm", "Apple A10 Fusion", "32, 128 or 256 GB", "12 megapixel")
+      var iPhoneX = new ApplePhone("iPhone X", "03/11/17", "143.6 mm", "Apple A11 Bionic", "64 or 256 GB", "12 Dual megapixel")
+
+      document.getElementById("iPhoneXreleaseDate").innerHTML = iPhoneX.releaseDate;
+    </script>
+
+  </body>
+</html>

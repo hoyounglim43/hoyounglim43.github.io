@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Nim Game </title>
+    <!-- Bootstrap v4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- CSS Stylsheet -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <p id="pageTitle">NIM GAME v.30</p>
+
+    <!-- Rules -->
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-1">
+            <h2>Guide: </h2>
+          </div>
+          <div class="col-10 offset-1">
+            <ol>
+              <li>Each player must select their names.</li>
+              <li>Player A starts off by selecting a number between 1-3</li>
+              <li>Player B selects another number between 1-3, which then adds up.</li>
+              <li>This pattern continues until one player reaches the Number 30.</li>
+              <li>The player that lands on number 30 loses.</li>
+            </ol>
+          </div>
+        </div>
+        <hr>
+        <div class="row h120">
+          <div class="col-6">
+            <h3 id="user1" v-bind:class="classPlayer1">Player A: {{players[0]}} {{winner1}}</h3>
+            <div id="userInputSection0" class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name: </span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" v-on:keypress.enter="addPlayer(0)" placeholder="Enter Nickname">
+            </div>
+            <div class="row" v-if="gameMode">
+
+              <div class="col-4">
+                <button type="button" class="btn numberButton" value="1" v-on:click="addCounter" v-bind:disabled="!currentTurnA">1</button>
+              </div>
+
+              <div class="col-4">
+                <button type="button" class="btn numberButton" value="2" v-on:click="addCounter" v-bind:disabled="!currentTurnA">2</button>
+              </div>
+
+              <div class="col-4">
+                <button type="button" class="btn numberButton" value="3" v-on:click="addCounter" v-bind:disabled="!currentTurnA">3</button>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h3 id="user2" v-bind:class="classPlayer2">Player B: {{players[1]}} {{winner2}}</h3>
+            <div id="userInputSection1" class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name: </span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" v-on:keypress.enter="addPlayer(1)" placeholder="Enter Nickname">
+            </div>
+            <div class="row" v-if="gameMode">
+
+              <div class="col-4">
+                <button type="button" class="btn numberButton" value="1" v-on:click="addCounter" v-bind:disabled="currentTurnA">1</button>
+              </div>
+
+              <div class="col-4">
+                <button type="button" class="btn numberButton" value="2" v-on:click="addCounter" v-bind:disabled="currentTurnA">2</button>
+              </div>
+
+              <div class="col-4">
+                <button type="button" class="btn numberButton" value="3" v-on:click="addCounter" v-bind:disabled="currentTurnA">3</button>
+              </div>
+
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+        <hr>
+
+
+        <div class="row">
+          <div class="col-12">
+            <p id="counter">{{counter}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+     var app = new Vue ({
+       el:"#app",
+       data: {
+         players: ["", ""],
+         counter: 0,
+         gameMode: false,
+         currentTurnA: true,
+         winner1: "",
+         winner2:"",
+         classPlayer1: {
+           winner: false
+         },
+         classPlayer2: {
+           winner: false
+         }
+       },
+       methods: {
+         addPlayer: function(index) {
+           var input = event.target;
+           if (input.value.length > 0) {
+           this.players.splice(index, 1, input.value)
+           document.getElementById("userInputSection" + index).style.display="none";
+            if(this.players[0].length > 0 && this.players[1].length > 0) {
+              this.gameMode = true;
+            }
+           }
+           else {
+             input.placeholder="Nickname Required!"
+           }
+         },
+
+         addCounter: function() {
+           this.counter = this.counter + Number(event.target.value);
+           this.currentTurnA = !this.currentTurnA;
+           this.endGame();
+         },
+
+         endGame: function() {
+           if (this.counter >= 30) {
+
+             this.gameMode = false;
+
+             if (this.currentTurnA == false) {
+               this.winner2="(Winner ♛)";
+               this.classPlayer2.winner = true;
+               // document.getElementById("user2").style="color:#a957ed";
+             }
+
+             else {
+               this.winner1="(Winner ♛)";
+               this.classPlayer1.winner = true;
+               // document.getElementById("user1").style="color:#a957ed";
+             }
+           }
+         }
+       }
+     });
+    </script>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

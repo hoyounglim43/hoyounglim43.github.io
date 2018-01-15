@@ -1,0 +1,27 @@
+body {
+  font-family: "Futura", sans-serif;
+}
+
+#pageTitle {
+  text-align:center;
+  font-weight:bold;
+  font-size:70px;
+  background-color: lightgreen;
+  color:black;
+  padding: 25px 0px 25px 0px;
+}
+
+.questionBox {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.textCenter {
+  text-align:center;
+}
+
+.questionRadio {
+  padding: 30px;
+}

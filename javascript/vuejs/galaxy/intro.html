@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js : Introduction</title>
+    <!-- Bootstrap v4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- Vue.js Framework -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <header>
+      <p id="pageTitle">Samsung Galaxy S & Note Lineups</p>
+    </header>
+
+    <!-- <div id="app">
+      <div v-for="galaxy in samsungGalaxyS">
+        <p>
+          {{galaxy.name}} ({{galaxy.year}})
+        </p>
+        <img :src="galaxy.url" width="300px">
+      </div>
+    </div> -->
+    <div id="app">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Year</th>
+          <th scope="col">S Lineup</th>
+          <th scope="col">Note Lineup</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS.year}}</th>
+          <td>{{samsungGalaxyS.galaxyS.name}}</td>
+          <td>Otto</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS2.year}}</th>
+          <td>{{samsungGalaxyS.galaxyS2.name}}</td>
+          <td>Thornton</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS3.year}}</th>
+          <td>{{samsungGalaxyS.galaxyS3.name}}</td>
+          <td>the Bird</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS4.year}}</th>
+          <td>{{samsungGalaxyS.galaxyS4.name}}</td>
+          <td>the Bird</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS5.year}}</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS6.year}}</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS7.year}}</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+        </tr>
+        <tr>
+          <th scope="row">{{samsungGalaxyS.galaxyS8.year}}</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+
+    <!-- JavaScript -->
+    <script type="text/javascript">
+      var app = new Vue ({
+        el: "#app",
+        data: {
+          samsungGalaxyS: {
+            galaxyS: {
+              name: "Samsung Galaxy S",
+              year: 2010,
+              url:"assets/s.png"
+            },
+            galaxyS2: {
+              name: "Samsung Galaxy S2",
+              year: 2011,
+              url:"assets/s2.png"
+            },
+            galaxyS3: {
+              name: "Samsung Galaxy S3",
+              year: 2012,
+              url:"assets/s3.png"
+            },
+            galaxyS4: {
+              name: "Samsung Galaxy S4",
+              year: 2013,
+              url:"assets/s4.png"
+            },
+            galaxyS5: {
+              name: "Samsung Galaxy S5",
+              year: 2014,
+              url:"assets/s5.png"
+            },
+            galaxyS6: {
+              name: "Samsung Galaxy S6",
+              year: 2015,
+              url:"assets/s6.png"
+            },
+            galaxyS7: {
+              name: "Samsung Galaxy S7",
+              year: 2016,
+              url:"assets/s7.png"
+            },
+            galaxyS8: {
+              name: "Samsung Galaxy S8",
+              year: 2017,
+              url:"assets/s8.png"
+            }
+          }
+        }
+      })
+
+
+    </script>
+
+  </body>
+</html>
