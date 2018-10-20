@@ -1,5 +1,5 @@
-var styles = require("./styles.css");
-var swal = require('sweetalert2')
+// var styles = require("./styles.css");
+// var swal = require('sweetalert2')
 
 
 var addListButtonTag = document.querySelector(".addListButton")
