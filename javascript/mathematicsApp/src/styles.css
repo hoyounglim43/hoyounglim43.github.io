@@ -1,0 +1,98 @@
+:root {
+  --main-black: #455A64;
+  --main-white: #ECEFF1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Product Sans", sans-serif
+}
+
+/* Body */
+body {
+  background-color: var(--main-white)
+}
+
+
+/* Header Section */
+.header {
+  width: 100%;
+  background-color: var(--main-black);
+  padding: 20px 0px;
+}
+
+.heading {
+  color: var(--main-white);
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+/* Sections: (Todo and review) */
+.section {
+  border: 5px solid var(--main-black);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.sectionTitle {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--main-black);
+  margin-bottom: 10px;
+}
+
+.button, .button:visited {
+  text-decoration: none;
+  border: 3px solid var(--main-black);
+  color: var(--main-black);
+  border-radius: 10px;
+  padding: 5px 15px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: background-color .5s, color .5s;
+}
+
+.button:hover {
+  color: var(--main-white);
+  background-color: var(--main-black);
+}
+
+
+/* Todo List Section */
+li {
+  list-style: none;
+  padding: 5px 0px;
+}
+
+.todo, .completed {
+  margin: 20px;
+  padding: 10px;
+  border: 3px solid var(--main-black);
+  border-radius: 10px;
+}
+
+.todo p, .completed p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.todoListItem input {
+  margin-right: 15px;
+}
+
+/* Review Section */
+.reviewItem {
+  margin: 20px;
+  padding: 10px;
+  border: 3px solid var(--main-black);
+  border-radius: 10px;
+}
+
+.reviewItemHeading {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
